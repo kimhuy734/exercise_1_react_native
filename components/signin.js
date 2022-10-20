@@ -17,7 +17,7 @@ export class Signin extends Component {
     const { email, password } = this.state;
     if(password == 123){
       Alert.alert('Your Email and password is: ' ,` ${email} \n ${password}`)
-    }else if (password != 123 && email == null){
+    }else if (password != 123){
       Alert.alert('Your email or password incorrect');
     }
   }
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    
     backgroundColor: '#ecf0f1',
   },
   input: {

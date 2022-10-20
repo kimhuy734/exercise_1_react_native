@@ -14,12 +14,8 @@ export class Signup extends Component {
   
   onLogin() {
     const {email,password, confirm_password} = this.state;
-    const [error, setError] = useState(null);
-    // const {
-    //   formState: { errors }
-    // } = useForm();
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-    // const errors = {}
+    const errors = {}
     if (password == '') {
         Alert.alert('Password is required!');
     } else if(confirm_password !== password){
@@ -27,14 +23,7 @@ export class Signup extends Component {
     } else{
         Alert.alert('Register succeessful!'+'\n'+ email +'\n' + password );
     }
-    if(reg.test(email) == ''){
-      setError('Email is required!')
-    }else if(reg.test(email) == false){
-      setError('Email is incorrect format');
-    }else if(reg.test(email) == true){
-      setError('Email is correct format');
-    }
-    return error
+    
   }
 
   render(error) {
@@ -47,7 +36,7 @@ export class Signup extends Component {
           placeholder={'E-Mail'}
           style={styles.input}
         />
-        {/* {error && <div style={{ color: 'red' }}>{error}</div>} */}
+        {error && <div style={{ color: 'red' }}>{error}</div>}
         <TextInput
           value={this.state.password}
           onChangeText={(password) => this.setState({ password })}
